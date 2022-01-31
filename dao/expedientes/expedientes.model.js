@@ -17,7 +17,7 @@ class Expedientes {
   new (identidad,fecha,descripcion,observacion,registros,ultimaActualizacion) {
     return new Promise( (accept, reject)=> {
       db.run(
-        'INSERT INTO pacientes (identidad,fecha,descripcion,observacion,registros,ultimaActualizacion) VALUES (?, ?, ?, ?, ?, ?);',
+        'INSERT INTO expedientes(identidad,fecha,descripcion,observacion,registros,ultimaActualizacion) VALUES (?, ?, ?, ?, ?, ?);',
         [identidad,fecha,descripcion,observacion,registros,ultimaActualizacion],
         (err, rslt)=>{
           if(err) {
@@ -62,7 +62,7 @@ class Expedientes {
   updateOne (id,identidad,fecha,descripcion,observacion,registros,ultimaActualizacion) {
     return new Promise(
       (accept, reject) => {
-        const sqlUpdate = 'UPDATE pacientes set identidad = ?, fecha = ?, descripcion= ?, observacion = ?,registros= ? ,ultimaActualizacion= ? where id = ?;';
+        const sqlUpdate = 'UPDATE expedientes set identidad = ?, fecha = ?, descripcion= ?, observacion = ?,registros= ? ,ultimaActualizacion= ? where id = ?;';
         db.run(
           sqlUpdate,
           [ identidad,fecha,descripcion,observacion,registros,ultimaActualizacion,id],
@@ -81,7 +81,7 @@ class Expedientes {
   deleteOne(id) {
     return new Promise(
       (accept, reject) => {
-        const sqlDelete = 'DELETE FROM pacientes where id = ?;';
+        const sqlDelete = 'DELETE FROM expedientes where id = ?;';
         db.run(
           sqlDelete,
           [id],
