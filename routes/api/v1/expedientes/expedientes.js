@@ -76,7 +76,7 @@ router.put('/update/:id', async (req, res) => {
 router.delete('/delete/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const result = await pacienteModel.deleteOne(id);
+    const result = await expedienteModel.deleteOne(id);
     res.status(200).json({
       status: 'ok',
       result
